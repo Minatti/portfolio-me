@@ -12,25 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-$this->group(['middleware' => ['auth'], 'namespace' => 'Admin'], function(){
-	$this->get('admin', 'AdminController@index')->name('admin.home');
-});
-*/
+
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('admin', 'Admin\AdminController@index')->name('admin.home');
 });
-
-
 
 Route::get('/', 'Site\SiteController@index')->name('home');
 
 Auth::routes();
 
 
-//Route::get('/', 'Site\SiteController@index');
-
-//Route::get('/home', function() {
-  //  return view('home');
-//})->name('home')->middleware('auth');
