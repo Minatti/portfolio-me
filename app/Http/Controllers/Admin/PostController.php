@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+
+    	dd( auth()->user()->posts()->get());
 
     	return view ('admin.post.index');
 
