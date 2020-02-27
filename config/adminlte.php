@@ -184,14 +184,20 @@ return [
             'icon'  => 'fas fa-fw fa-chart-line',
         ],
         [
-            'text'        => 'Post',
-            'url'         => 'admin/post',
+            'text'        => 'Blog',        
             'icon'        => 'fas fa-fw fa-blog',
             'submenu' => [
                 [
 
+                    'text' => 'Post',
+                    'url' => 'admin/post',
+                    'icon' => 'fas fa-fw fa-eye'
+
+                ],
+                [
+
                     'text' => 'New Post',
-                    'url' => 'new-post',
+                    'url' => 'admin/new-post',
                     'icon' => 'fas fa-fw fa-plus-circle'
 
                 ]

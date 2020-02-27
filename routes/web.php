@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('admin', 'Admin\AdminController@index')->name('admin.home');
+    Route::get('admin/post', 'Admin\PostController@index')->name('admin.post');
 });
 
 Route::get('/', 'Site\SiteController@index')->name('home');
