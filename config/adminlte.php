@@ -179,14 +179,24 @@ return [
             'topnav' => true,
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Dashboard',
+            'url'  => 'admin',
+            'icon'  => 'fas fa-fw fa-chart-line',
         ],
         [
-            'text'        => 'Home',
-            'url'         => 'admin/pages',
-            'icon'        => 'fas fa-fw fa-rocket',
+            'text'        => 'Post',
+            'url'         => 'admin/post',
+            'icon'        => 'fas fa-fw fa-blog',
+            'submenu' => [
+                [
+
+                    'text' => 'New Post',
+                    'url' => 'new-post',
+                    'icon' => 'fas fa-fw fa-plus-circle'
+
+                ]
+
+            ]
         ],
         ['header' => 'account_settings'],
         [
