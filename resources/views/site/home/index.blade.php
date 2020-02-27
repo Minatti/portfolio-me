@@ -11,15 +11,106 @@
 
         <!-- Styles -->
         <style>
+        
+     /*   :padrao 
+        {
+            --primary-color: #302AE6;
+            --secondary-color: #536390;
+            --font-color: #424242;
+            --bg-color: #fff;
+            --heading-color: #292922;
+        }        
+    */
+        [data-theme="dark"] {
+            --primary-color: #9A97F3;
+            --secondary-color: #818cab;
+            --font-color: #fff;
+            --bg-color: #161625;
+            --heading-color: #818cab;
+        }            
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                /*background-color: #fff; */
+                /* color: #636b6f; */
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                background-color: var(--bg-color);
+                color: var(--font-color);                
+            }
+            
+            h1 {
+                color: var(--secondary-color);
+
+                /*other styles*/
+                .....
             }
 
+            a {
+                color: var(--primary-color);
+
+                /*other styles*/
+                .....
+            }
+
+            /*Simple css to style it like a toggle switch*/
+            .theme-switch-wrapper {
+              display: flex;
+              align-items: center;
+
+              em {
+                margin-left: 10px;
+                font-size: 1rem;
+              }
+            }
+            .theme-switch {
+              display: inline-block;
+              height: 34px;
+              position: relative;
+              width: 60px;
+            }
+
+            .theme-switch input {
+              display:none;
+            }
+
+            .slider {
+              background-color: #ccc;
+              bottom: 0;
+              cursor: pointer;
+              left: 0;
+              position: absolute;
+              right: 0;
+              top: 0;
+              transition: .4s;
+            }
+
+            .slider:before {
+              background-color: #fff;
+              bottom: 4px;
+              content: "";
+              height: 26px;
+              left: 4px;
+              position: absolute;
+              transition: .4s;
+              width: 26px;
+            }
+
+            input:checked + .slider {
+              background-color: #66bb6a;
+            }
+
+            input:checked + .slider:before {
+              transform: translateX(26px);
+            }
+
+            .slider.round {
+              border-radius: 34px;
+            }
+
+            .slider.round:before {
+              border-radius: 50%;
+            }                        
             .full-height {
                 height: 100vh;
             }
@@ -65,20 +156,13 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                    <div class="top-right links theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox" />
+                            <div class="slider round"></div>
+                          </label>
+                      <em> Dark Theme</em>                   
                 </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
@@ -96,5 +180,50 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+
+            const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+                function switchTheme(e) 
+            {
+                    if (e.target.checked) 
+                    {
+                        document.documentElement.setAttribute('data-theme', 'dark');
+                    }
+                    else 
+                    {
+                        document.documentElement.setAttribute('data-theme', 'light');
+                    }    
+            }
+
+            toggleSwitch.addEventListener('change', switchTheme, false);                        
+
+
+                function switchTheme(e) 
+            {
+                if (e.target.checked) 
+                {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark'); //add this
+                }
+                else 
+                {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light'); //add this
+                }    
+            }            
+
+            const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+            if (currentTheme) 
+            {
+                document.documentElement.setAttribute('data-theme', currentTheme);
+
+                if (currentTheme === 'dark') 
+                {
+                    toggleSwitch.checked = true;
+                }
+            }            
+        </script>
     </body>
 </html>

@@ -3,7 +3,9 @@
 @section('title', 'Post')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Posts</h1>
+    <h1 class="m-0 text-dark">Posts
+           {{$post}}
+    </h1>
     <hr>
 @stop
 
