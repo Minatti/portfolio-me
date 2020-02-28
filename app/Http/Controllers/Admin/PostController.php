@@ -27,6 +27,11 @@ class PostController extends Controller
     	return view ('admin.post.index',compact('user'));
 
     }
+
+    public function new()
+    {
+    	return view ('admin.post.form-new');
+    }
 }
 
     	

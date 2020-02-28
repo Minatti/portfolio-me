@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Dev</b> @@',
+    'logo' => '<b>Dev</b>',
     //'logo_img' => 'vendor/adminlte/dist/img/profile.png',
     'logo_img_class' => 'brand-image-xl',
     'logo_img_xl' => null,
@@ -194,13 +194,6 @@ return [
                     'icon' => 'fas fa-fw fa-eye'
 
                 ],
-                [
-
-                    'text' => 'New Post',
-                    'url' => 'admin/new-post',
-                    'icon' => 'fas fa-fw fa-plus-circle'
-
-                ]
 
             ]
         ],
