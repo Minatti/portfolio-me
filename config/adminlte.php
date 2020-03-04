@@ -189,7 +189,7 @@ return [
             'submenu' => [
                 [
 
-                    'text' => 'Post',
+                    'text' => 'Postagens',
                     'url' => 'admin/post',
                     'icon' => 'fas fa-fw fa-eye'
 
@@ -199,7 +199,7 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'Change Image',
+            'text' => 'Mudar Foto perfil',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
