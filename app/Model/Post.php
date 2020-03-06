@@ -11,10 +11,5 @@ class Post extends Model
         'title', 'user_id','description', 'image',
     ];
 
-
-public function users(){
-
-	return $this->belongsTo('App\User', 'id');
-}
 	  
 }

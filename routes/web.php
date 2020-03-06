@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::get('/', 'Site\SiteController@index')->name('home');
-
+Route::get('/posts/show/{id}', 'Site\SiteController@show')->name('home')
+->where('id', '[0-9]+');
 
 

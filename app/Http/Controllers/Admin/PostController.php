@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-//use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 use App\User;
 use App\Model\Post;
 use Request;
@@ -45,13 +43,13 @@ class PostController extends Controller
         return view('admin.post.index', compact('user'));
     }
 
-    public function create(){
+    public function create()
+    {
 
 
         return view ('admin.post._form');
 
     }
-
 
 
     public function store(Request $request)
@@ -69,11 +67,14 @@ class PostController extends Controller
 
     $post->save();
 
-    //session::flash('Success', 'Post adicionado com sucesso!');
+    return view('admin.post._form');            
 
-    return view('admin.post._form');
+
+    
 
     }
+
+    
 
 }
 
