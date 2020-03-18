@@ -21,26 +21,10 @@ class PostController extends Controller
 
     {
 
-    	/*
-    	$users_posts = User::with('posts')->get();
-        
-        
-        $users_posts->name;
-
-
-        foreach ($users_posts as $key ) {
-            $on = $key['description'];
-
-            print_r($on);
-        }
-
-    	//return view ('admin.post.index', compact('users_posts'));
-
-        */
-
         $user = User::find(1);
 
         return view('admin.post.index', compact('user'));
+
     }
 
     public function create()
@@ -61,21 +45,46 @@ class PostController extends Controller
         |]);        
         */              
 
-    $data = request::all();    
-    $user = User::find(1);
-    $post = $user->posts()->create($data);
+        $data = request::all();    
+        $user = User::find(1);
+        $post = $user->posts()->create($data);
 
-    $post->save();
+        $post->save();
 
-    return view('admin.post._form');            
-
-
-    
+        return view('admin.post._form');           
+ 
 
     }
 
-    
+    public function edit($id)
+    {
 
+        $post = Post::findOrfail($id);
+        
+        return view ('admin.post._form_edit', compact('post'));
+
+    }
+
+    public function update(Request $request, $id)
+
+    {
+        $data = request::all();
+        $post = Post::findOrfail($id);
+        $post->update($data);
+        $post->save();
+
+        return view('admin.post._form_edit', compact('post'));
+
+    }
+
+/*****
+    public function delete($id){
+
+        $post = Post::findorFail($id);
+        $post->delete();
+
+        return view('')
+    }
+*****/
 }
 
-    	

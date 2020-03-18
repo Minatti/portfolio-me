@@ -19,11 +19,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('admin/post', 'Admin\PostController@index')->name('admin.post');
     Route::get('admin/post/create', 'Admin\PostController@create')->name('admin.post');
     Route::post('admin/post/store', 'Admin\PostController@store')->name('admin.post');
-    //Route::get('admin/post/form-new', 'Admin\PostController@new')->name('admin.post');
+    Route::get('admin/post/edit/{id}', 'Admin\PostController@edit')->name('admin.post');
+    Route::put('admin/post/update/{id}', 'Admin\PostController@update')->name('admin.post');
 });
 
 Route::get('/', 'Site\SiteController@index')->name('home');
-Route::get('/posts/show/{id}', 'Site\SiteController@show')->name('home')
-->where('id', '[0-9]+');
+
+/*Route::get('/posts/show/{id}', 'Site\SiteController@show')->name('home')
+->where('id', '[0-9]+');*/
 
 

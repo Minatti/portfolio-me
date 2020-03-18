@@ -14,17 +14,13 @@ class SiteController extends Controller
 
     	$user_posts = DB::table('users')
 		            ->join('posts', 'users.id', '=', 'posts.user_id')		           
-		            ->select('users.*', 'posts.title', 'posts.description')
+		            ->select('users.*', 'posts.title', 'posts.image','posts.description', 'posts.created_at', 'posts.updated_at')
 		            ->limit('3')
+		            ->orderby('posts.created_at', 'desc')           
 		            ->get();
 
     	return view ('site.home.index', compact('user_posts'));
     }
 
 
-	public function show($id)
-    {
-
-        
-    }
 }

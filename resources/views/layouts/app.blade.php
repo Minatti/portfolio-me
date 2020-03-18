@@ -1,33 +1,26 @@
 <html>
-<head>
-    <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/custom.css" rel="stylesheet">
-    <title>Portfolio</title>
-</head>
-<body>
-  <div class="container">
+    <head>
+        <title>App Name - @yield('title')</title>
+    </head>
+    <body>
+        @section('navbar')
+        
 
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
+        @endsection
 
-        <div class="navbar-header">      
-          <a class="navbar-brand" href="/posts">Portfolio</a>
+        @section('sidebar')
+            This is the master sidebar.
+        @show
+
+        <div class="container">
+            @yield('content')
         </div>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="">Posts mais recentes</a></li>
-          <li><a href="">New</a></li>
-        </ul>
 
-      </div>
-    </nav>
+        @section('footer')
 
-    @yield('content')
+        <footer></footer>
 
-    <footer class="footer">
-        <p class="text-muted">2020</p>
-    </footer>
-    
-  </div>
-</body>
+        @endsection
+    </body>
 </html>

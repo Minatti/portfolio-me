@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-      @foreach ($user_posts as $p)
+@extends('layouts.app')
+
+@section('title', 'Luan Carminatti')
+
+@section('sidebar')
+    @parent
+
+    <p>This is appended to the master sidebar.</p>
+@endsection
+
+@section('content')
+
+
+      <div class="container">
+          @foreach ($user_posts as $p)
          <div class="card shadow-sm rounded border-light mb-3" style="margin-top: 20px;">
             <div class="card-body">
               <div class="row">
@@ -12,7 +20,7 @@
                     <h3 class="card-subtitle mb-3 text-primary text-uppercase" style="font-size: 0.8rem;"> <strong>{ Tecnologia }</strong></h3>
                      <img src="" class="img-fluid" alt="Responsive image">
                      <p class="text-muted">{{ $p->name }}</p>
-                      <small class="text-primary">{{$p->created_at }}</small>                 
+                      <small class="text-primary">{{$p->created_at}}</small>                 
                   </div> 
                       <div class="col">
                            <p class="card-text text-left">{{ $p->description }}</p>
@@ -26,5 +34,6 @@
                 <hr> 
             </div>
         @endforeach    
-</body>
-</html>
+      </div>
+@endsection    
+      
